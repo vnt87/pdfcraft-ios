@@ -1419,17 +1419,6 @@ usage = "UI icon, embedded via crates/ui-egui/src/icon_data.rs"
 sha256 = "5812a3be783fdcd73efd2b6026e03131e4b8c6649e7d52aa2dc7bf2e2023a59d"
 
 [[asset]]
-path = "assets/icons/messages-square.svg"
-title = "Lucide icon \"messages-square\""
-author = "Lucide Contributors (portions Cole Bemis, Feather)"
-source = "https://github.com/lucide-icons/lucide (npm lucide-static 1.49.0, icons/messages-square.svg)"
-licence = "ISC"
-licence_file = "assets/icons/LICENSE-lucide.txt"
-kind = "icon"
-usage = "UI icon, embedded via crates/ui-egui/src/icon_data.rs"
-sha256 = "eaad0af0779c6ef7816f2468017b3a1aa58338486dc85aa1ba6b276a6b1454b0"
-
-[[asset]]
 path = "assets/icons/mic.svg"
 title = "Lucide icon \"mic\""
 author = "Lucide Contributors (portions Cole Bemis, Feather)"

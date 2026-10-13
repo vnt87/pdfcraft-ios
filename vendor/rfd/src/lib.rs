@@ -1,3 +1,5 @@
+// PdfCraft patch: the rest of this crate is rfd 0.17.2 unmodified; its warnings are not ours to fix.
+#![allow(warnings)]
 //! Rusty File Dialogs is a cross platform library for using native file open/save dialogs.
 //! It provides both asynchronous and synchronous APIs. Supported platforms:
 //!

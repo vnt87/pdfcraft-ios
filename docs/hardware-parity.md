@@ -1,6 +1,6 @@
 # Hardware and platform parity
 
-> **Last reviewed:** 2026-10-10 · **Last updated:** 2026-10-11 · **Change:** minor (web printing through the browser's print dialog; earlier: shared craft-print spooler with passing Windows CI; Windows printers row and 1:1 touchpad scrolling, #756, #759) · **Target:** Adobe Acrobat Pro (Acrobat DC, continuous track 26.002.21931, macOS)
+> **Last reviewed:** 2026-10-10 · **Last updated:** 2026-10-13 · **Change:** minor (iPadOS fork section; earlier: web printing through the browser's print dialog; earlier: shared craft-print spooler with passing Windows CI; Windows printers row and 1:1 touchpad scrolling, #756, #759) · **Target:** Adobe Acrobat Pro (Acrobat DC, continuous track 26.002.21931, macOS)
 
 Each hardware feature Acrobat Pro uses, per platform, ours against Acrobat's. Acrobat runs on macOS
 and Windows (plus a limited web viewer/editor in Document Cloud); PdfCraft runs on macOS, Windows,
@@ -36,6 +36,15 @@ printing are counted in their feature areas). **Platforms ≈ 70% ready, 15–30
 | FreeBSD | no | yes | package | — |
 | Web | Acrobat online (cloud) | yes (WASM, offline in the browser) | static site | OCR, crash recovery, PKCS #12 signing, hosted deployment |
 
+## iPadOS (fork)
+
+Only what has been demonstrated. On the iPad Air 11-inch (M3) Simulator with iPadOS 26.2 (2026-10-13): the
+Debug app builds for Apple Silicon, installs, launches and draws the home screen in portrait inside the safe
+area. File pickers go through the vendored rfd's iPadOS hook to UIKit's document picker (host tests cover the
+hook and the runner's storage and change tracking; the picker itself is not yet exercised). Nothing has been
+run on a physical iPad. Not demonstrated or not wired up: opening and saving a PDF end to end, touch, Apple
+Pencil, an external keyboard, multitasking, landscape, folder pickers (cancelled), printing, the system clipboard.
+
 ## Revision history
 
 | Date | Change | Summary |
@@ -45,3 +54,4 @@ printing are counted in their feature areas). **Platforms ≈ 70% ready, 15–30
 | 2026-10-10 | minor | Windows printing shipped (#756): the Windows row's gap is closed; the web row keeps "printing" |
 | 2026-10-11 | minor | Shared craft-print spooler; Windows preserves PDF sheet size/orientation and uses corrected duplex binding edges. Physical output remains a hardware check. |
 | 2026-10-11 | minor | The Printers row's Windows cell still said none: now the Windows spooler (#756, PR #847). Touchpad scrolling 1:1 (#759, PR #868) |
+| 2026-10-13 | minor | iPadOS fork section: simulator launch and home screen only; everything else listed as not demonstrated |

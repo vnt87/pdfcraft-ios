@@ -300,6 +300,8 @@ Every asset PdfCraft includes, bundles or uses to build its published material, 
 
 | `packaging/ios/PdfCraft/Assets.xcassets/AppIcon.appiconset/AppIcon.png` | PdfCraft iPadOS app icon | PdfCraft contributors (drawn by the project owner in ArtCraft; see assets/app-icon/README.md) | MIT OR Apache-2.0 | Rendered from assets/app-icon/pdfcraft.svg at 1024 px without its rounded-corner clip and flattened onto the full-bleed #12a58a field, with no alpha channel (iOS applies its own corner mask and rejects transparency) | iPadOS app icon, the single 1024 pt image in packaging/ios/PdfCraft/Assets.xcassets |
 
+| `docs/images/pdfcraft-ipad-portrait.png` | PdfCraft on iPadOS: home screen | PdfCraft contributors | MIT OR Apache-2.0 | screenshot of this fork's own app running in the iPad Air 11-inch (M3) Simulator (iPadOS 26.2); shows only PdfCraft's UI and Lucide icons | README hero image for the iPadOS fork |
+
 ## Compiled in through dependencies (6)
 
 | Crate | File | Title | Author | Licence | Source | Used for |

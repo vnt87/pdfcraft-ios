@@ -4,7 +4,7 @@
 
 Every asset PdfCraft includes, bundles or uses to build its published material, with its author, source and licence. The policy is in [AGENTS.md](AGENTS.md) §1. The machine-readable list, with SHA-256 hashes, is [ATTRIBUTION.toml](ATTRIBUTION.toml). Licence texts are kept beside the assets and summarised in [NOTICE](NOTICE).
 
-## In this repository (270)
+## In this repository (271)
 
 | Asset | Title | Author | Licence | Source | Used for |
 |---|---|---|---|---|---|
@@ -278,6 +278,7 @@ Every asset PdfCraft includes, bundles or uses to build its published material, 
 | `assets/icons/monitor.svg` | Lucide icon "monitor" | Lucide Contributors (portions Cole Bemis, Feather) | ISC | https://github.com/lucide-icons/lucide (npm lucide-static 1.49.0, icons/monitor.svg) | UI icon, embedded via crates/ui-egui/src/icon_data.rs |
 | `crates/ui-egui/src/i18n/sl.tsv` | Slovene interface translation catalog | PdfCraft contributors | MIT OR Apache-2.0 | Contributor-original: clean-room translations of PdfCraft's English UI labels, no proprietary localisation resources | Slovene UI strings, compiled in by crates/ui-egui/src/i18n/mod.rs |
 | `packaging/ios/PdfCraft/Assets.xcassets/AppIcon.appiconset/AppIcon.png` | PdfCraft iPadOS app icon | PdfCraft contributors (drawn by the project owner in ArtCraft; see assets/app-icon/README.md) | MIT OR Apache-2.0 | Rendered from assets/app-icon/pdfcraft.svg at 1024 px without its rounded-corner clip and flattened onto the full-bleed #12a58a field, with no alpha channel (iOS applies its own corner mask and rejects transparency) | iPadOS app icon, the single 1024 pt image in packaging/ios/PdfCraft/Assets.xcassets |
+| `docs/images/pdfcraft-ipad-portrait.png` | PdfCraft on iPadOS: home screen | PdfCraft contributors | MIT OR Apache-2.0 | screenshot of this fork's own app running in the iPad Air 11-inch (M3) Simulator (iPadOS 26.2); shows only PdfCraft's UI and Lucide icons | README hero image for the iPadOS fork |
 
 ## Compiled in through dependencies (6)
 

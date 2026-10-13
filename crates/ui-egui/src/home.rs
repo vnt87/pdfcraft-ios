@@ -42,10 +42,7 @@ pub fn show(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
                         ui.set_width(ui.available_width());
                         ui.horizontal(|ui| {
                             widgets::artcraft_mark(ui, 28.0);
-                            ui.vertical(|ui| {
-                                ui.label(egui::RichText::new(tl!("Join the ArtCraft community")).font(theme::semibold(15.0)));
-                                ui.label(egui::RichText::new(tl!("Get help, share feedback and follow development on Discord.")).color(t.text_muted));
-                            });
+                            ui.label(egui::RichText::new(tl!("Join the ArtCraft community")).font(theme::semibold(15.0)));
                             // Closed for this run only: the card is back on the next launch.
                             ui.with_layout(egui::Layout::right_to_left(egui::Align::Min), |ui| {
                                 if icons::button(ui, "x", 24.0, false, tl!("Close")).clicked() {

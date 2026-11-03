@@ -43,12 +43,20 @@ Debug app builds for Apple Silicon, installs, launches and draws the home screen
 area. File pickers go through the vendored rfd's iPadOS hook to UIKit's document picker (host tests cover the
 hook and the runner's storage and change tracking; the picker itself is not yet exercised). Nothing has been
 run on a physical iPad. Not demonstrated or not wired up: opening and saving a PDF end to end, touch, Apple
-Pencil, an external keyboard, multitasking, landscape, folder pickers (cancelled), printing, the system clipboard.
+Pencil, multitasking, landscape, folder pickers (cancelled), printing, the system clipboard.
+
+Hardware keyboard (a Logitech Folio, say). iPadOS hands a UIKit app only the characters it types and Backspace,
+so Enter, the arrows, Esc and the ⌘ shortcuts reached nothing. The runner now reads the keyboard through
+GameController and injects what iPadOS withholds — Enter, arrows, Home/End, Page Up/Down, Delete, Esc, Tab,
+F-keys, the ⌘/Ctrl chords with their modifiers, and key repeat (`apps/pdfcraft-ios/src/gc_keyboard.rs` and
+`hw_keys.rs`, host-tested). Not yet verified on a device. Known gap: ⌘/Option+Backspace (delete word or line) is
+still the plain Backspace UIKit types.
 
 ## Revision history
 
 | Date | Change | Summary |
 |---|---|---|
+| 2026-11-03 | minor | iPadOS hardware keyboard: the runner reads the keyboard through GameController and injects the keys iPadOS withholds from winit (Enter, arrows, Esc, Home/End, Page Up/Down, Delete, Tab, F-keys, ⌘/Ctrl chords, modifiers, key repeat). Host-tested, not yet run on a device |
 | 2026-10-11 | minor | Web printers row: printing through the browser's print dialog (gap 4 closed); Web platform row no longer lists printing |
 | 2026-10-10 | major | Created from the code, `vendor/README.md`, `.github/workflows/release.yml`, the print crate's README and user issues |
 | 2026-10-10 | minor | Windows printing shipped (#756): the Windows row's gap is closed; the web row keeps "printing" |

@@ -15,6 +15,7 @@ mod netcheck;
 mod parity;
 mod screenshots;
 mod version;
+mod web;
 
 type Command = fn(&[String]) -> anyhow::Result<()>;
 
@@ -61,6 +62,11 @@ const COMMANDS: &[(&str, &str, Command)] = &[
         ios_cmd,
     ),
     ("demo-pdf", "Build dist/demo/pdfcraft-showcase.pdf (needs Google Chrome or Chromium)", demo_pdf::run),
+    (
+        "web-worker-link",
+        "Hash the web build's OCR worker files and name the worker in index.html (a Trunk post-build hook runs it)",
+        web::worker_link,
+    ),
 ];
 
 fn version_cmd(args: &[String]) -> anyhow::Result<()> {

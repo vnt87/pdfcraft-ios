@@ -268,10 +268,9 @@ Every asset PdfCraft includes, bundles or uses to build its published material, 
 | `assets/icons/move-horizontal.svg` | Lucide icon "move-horizontal" | Lucide Contributors (portions Cole Bemis, Feather) | ISC AND MIT | https://github.com/lucide-icons/lucide (npm lucide-static 1.49.0, icons/move-horizontal.svg) | UI icon, embedded via crates/ui-egui/src/icon_data.rs |
 
 | `packaging/ios/PdfCraft/Assets.xcassets/AppIcon.appiconset/AppIcon.png` | PdfCraft iPadOS app icon | PdfCraft contributors (drawn by the project owner in ArtCraft; see assets/app-icon/README.md) | MIT OR Apache-2.0 | Rendered from assets/app-icon/pdfcraft.svg at 1024 px without its rounded-corner clip and flattened onto the full-bleed #12a58a field, with no alpha channel (iOS applies its own corner mask and rejects transparency) | iPadOS app icon, the single 1024 pt image in packaging/ios/PdfCraft/Assets.xcassets |
-
 | `docs/images/pdfcraft-ipad-portrait.png` | PdfCraft on iPadOS: home screen | PdfCraft contributors | MIT OR Apache-2.0 | screenshot of this fork's own app running in the iPad Air 11-inch (M3) Simulator (iPadOS 26.2); shows only PdfCraft's UI and Lucide icons | README hero image for the iPadOS fork |
 
-## Compiled in through dependencies (6)
+## Compiled in through dependencies (7)
 
 | Crate | File | Title | Author | Licence | Source | Used for |
 |---|---|---|---|---|---|---|
@@ -279,8 +278,9 @@ Every asset PdfCraft includes, bundles or uses to build its published material, 
 | `epaint_default_fonts` 0.37.0 | `fonts/Hack-Regular.ttf` | Hack Regular | Source Foundry Authors (derived from Bitstream Vera / DejaVu) | MIT AND Bitstream-Vera | https://github.com/source-foundry/Hack | egui fallback fonts (eframe feature default_fonts) |
 | `epaint_default_fonts` 0.37.0 | `fonts/NotoEmoji-Regular.ttf` | Noto Emoji (monochrome) | Google Inc. | OFL-1.1 | https://github.com/googlefonts/noto-emoji | egui monochrome fallback font (egui feature monochrome_emoji_fonts) |
 | `epaint_default_fonts` 0.37.0 | `fonts/emoji-icon-font.ttf` | emoji-icon-font | John Slegers | MIT | https://github.com/jslegers/emoji-icon-font | egui monochrome fallback font (egui feature monochrome_emoji_fonts) |
-| `epaint_default_fonts` 0.37.0 | `fonts/egui-icons.ttf` | egui icons (monochrome emoji-icon-font subset) | John Slegers | MIT | https://github.com/jslegers/emoji-icon-font | Small special-icon subset embedded by egui default_fonts; retained in FontDefinitions::default(). Provenance: https://github.com/storytold/egui/blob/6d518fc799681571963842f95b55a6b68431b15a/crates/epaint_default_fonts/fonts/egui-icons.txt; complete MIT copyright and permission text in NOTICE. |
+| `epaint_default_fonts` 0.37.0 | `fonts/egui-icons.ttf` | egui icons (monochrome emoji-icon-font subset) | John Slegers | MIT | https://github.com/jslegers/emoji-icon-font | Small special-icon subset embedded by egui default_fonts; retained in FontDefinitions::default(). Provenance: https://github.com/storytold/egui/blob/725a39fca940f77149ffbb9c58eef405a16997bc/crates/epaint_default_fonts/fonts/egui-icons.txt; complete MIT copyright and permission text in NOTICE. |
 | `hayro-interpret` 0.7.0 | `src/font/generated/metrics.rs` | Standard-14 font metrics and encodings (as Rust tables) (non-visual data, AGENTS.md §1.1) | Adobe (Core 14 AFM metrics, PDF specification encodings); tables by The Hayro Authors | MIT OR Apache-2.0 | ISO 32000-2 Annex D; Adobe Core14 AFM files (via vendored hayro-interpret) | Glyph widths and encodings for non-embedded standard fonts. Non-visual data, allowed by AGENTS.md §1.1 |
+| `icu_segmenter_data` 2.3.0 | `data/segmenter_dictionary_extended_v1.rs.data` | Southeast Asian word dictionaries for line breaking (Thai, Lao, Khmer, Burmese) | The ICU4X Project Developers; word lists from the ICU project (Unicode, Inc.) | Unicode-3.0 | https://github.com/unicode-org/icu4x (via icu_segmenter_data) | Word boundaries for wrapping Thai text in Edit text and Add text (crates/edit/src/linebreak.rs). Non-visual data; the line segmenter loads only these dictionaries, not the Chinese and Japanese one |
 
 ## Downloaded at build time (22)
 

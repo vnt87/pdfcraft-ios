@@ -4571,7 +4571,7 @@ version = "0.21.1"
 
 [[package]]
 name = "pdfcraft-ios"
-version = "0.18.1"
+version = "0.21.1"
 dependencies = [
  "block2 0.6.2",
  "dispatch2",

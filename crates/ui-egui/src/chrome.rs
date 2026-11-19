@@ -61,7 +61,7 @@ pub fn tab_strip(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
     }
     // With the lights at the right (a right-to-left system language), the strip is the mirror
     // image of the usual one: Home beside the lights, the tabs and Open after it, and the
-    // Discord, shortcuts and theme buttons at the far end.
+    // shortcuts and theme buttons at the far end.
     let mirrored = mac && app.titlebar_lights_right == Some(true);
     let (left, right) = match (mac, mirrored) {
         (true, false) => (MAC_CONTENT_LEFT as i8, 10),

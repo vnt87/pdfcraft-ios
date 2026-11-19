@@ -753,8 +753,7 @@ fn the_integrated_title_bar_is_the_traffic_light_band() {
 
 /// macOS with a right-to-left system language: AppKit mirrors the traffic lights to the right end
 /// of the title bar, and the strip mirrors with them. Home sits beside the lights, the tabs read
-/// from the right after it, then Open; Discord, shortcuts, theme and Preferences move to the far
-/// left end.
+/// from the right after it, then Open; shortcuts, theme and Preferences move to the far left end.
 #[cfg(target_os = "macos")]
 fn mirrored_title_bar(names: &[&'static str]) -> Harness<'static, PdfCraftApp> {
     let names = names.to_vec();
@@ -778,7 +777,6 @@ fn the_integrated_title_bar_mirrors_with_traffic_lights_at_the_right() {
         ("Home", rect("Home")),
         ("first.pdf", rect("first.pdf")),
         ("Open", rect("Open")),
-        ("Discord", rect("Discord")),
         ("Display theme", theme),
         ("Preferences", rect("Preferences")),
     ] {
@@ -793,14 +791,14 @@ fn the_integrated_title_bar_mirrors_with_traffic_lights_at_the_right() {
     assert!(rect("last.pdf").right() <= rect("first.pdf").left(), "the tabs read from the right");
     assert!(rect("first.pdf").right() >= home.left() - 12.0, "the tabs stay beside Home");
     assert!(rect("Open").right() <= rect("last.pdf").left(), "Open follows the tabs");
-    // The other end: Preferences, theme, shortcuts and Discord, mirroring their order at the right.
-    let (preferences, help, discord) = (rect("Preferences"), rect("Keyboard shortcuts"), rect("Discord"));
+    // The other end: Preferences, theme and shortcuts, mirroring their order at the right.
+    let (preferences, help) = (rect("Preferences"), rect("Keyboard shortcuts"));
     assert!(preferences.left() < 20.0, "Preferences {preferences:?} at the far end");
     assert!(
-        preferences.right() <= theme.left() && theme.right() <= help.left() && help.right() <= discord.left(),
-        "Preferences, theme, shortcuts, Discord"
+        preferences.right() <= theme.left() && theme.right() <= help.left(),
+        "Preferences, theme, shortcuts"
     );
-    assert!(discord.right() < rect("Open").left(), "Discord stays clear of Open");
+    assert!(help.right() < rect("Open").left(), "the shortcuts button stays clear of Open");
 }
 
 /// Mirrored, a tab dragged to the left moves later in the order, as it reads from the right.

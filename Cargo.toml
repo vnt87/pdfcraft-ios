@@ -206,5 +206,6 @@ winit = { git = "https://github.com/storytold/winit.git", rev = "a517b3846ee8457
 lopdf = { path = "vendor/lopdf" }
 vello_common = { path = "vendor/vello_common" }
 vello_cpu = { path = "vendor/vello_cpu" }
+rfd = { path = "vendor/rfd" }
 
 # END port-kit framework patch

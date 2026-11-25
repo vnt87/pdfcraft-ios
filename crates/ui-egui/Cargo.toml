@@ -55,14 +55,18 @@ unicode-bidi = "0.3"
 skrifa = "0.44"
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-# Help ▸ Check for updates: the facade's update crate builds only natively. The file service and the save flow
-# (`dialogs`) sit on rfd's blocking panels and threads, so they are native too; the web saves through the
-# platform's BrowserFiles (`editing/save.rs`).
-craft = { workspace = true, features = ["update", "platform-clipboard-system", "dialogs"] }
 # Control-channel tokens.
 getrandom = "0.4"
+
+[target.'cfg(all(not(target_arch = "wasm32"), not(target_os = "ios")))'.dependencies]
+# Help ▸ Check for updates, system clipboard (arboard), and native file dialogs.
+craft = { workspace = true, features = ["update", "platform-clipboard-system", "dialogs"] }
 # Create ▸ Clipboard (images; already in the tree through egui-winit).
 arboard = { version = "3.6", default-features = false, features = ["image-data"] }
+
+[target.'cfg(target_os = "ios")'.dependencies]
+# iPadOS omits platform-clipboard-system (arboard pulls wayland-backend on non-macOS unix).
+craft = { workspace = true, features = ["update", "dialogs"] }
 
 [target.'cfg(target_os = "macos")'.dependencies]
 # Safe AppKit calls for drag coordinates and repairing an existing per-file PDFCraft binding.

@@ -171,11 +171,10 @@ pub fn show(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
                                 asked.borrow_mut().push(Asked::CloseCommunityCard);
                             }
                         });
-                        let _ = Text::new(tl!("Get help, share feedback and follow development on Discord.").to_string()).show(ui);
                         Row::new().wrap(true).show(ui, |ui, _| {
-                            for (i, link) in pdfcraft_engine::links::LINKS.iter().enumerate() {
-                                let label = if i == 0 { tl!("Join our Discord") } else { tl!(link.label) };
-                                let variant = if i == 0 { craft::theme::Variant::PRIMARY } else { craft::theme::Variant::SECONDARY };
+                            for link in pdfcraft_engine::links::LINKS {
+                                let label = tl!(link.label);
+                                let variant = craft::theme::Variant::SECONDARY;
                                 if clicked(&Button::new(label.to_string()).variant(variant).icon(IconId::new(link.icon)).show(ui)) {
                                     asked.borrow_mut().push(Asked::Link(link.command));
                                 }
